@@ -5,4 +5,4 @@ const valleySchema = mongoose.Schema({
  cost: Number 
 }) 
  
-module.exports = mongoose.model("valley", Schema) 
+module.exports = mongoose.model("valley", valleySchema) 

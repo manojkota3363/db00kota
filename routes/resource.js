@@ -22,7 +22,7 @@ var valley_controller = require('../controllers/valley');
 
 router.get('/', api_controller.api);
 
-router.get('/', fan_controllers.valley_view_all_Page );  
+router.get('/', valley_controllers.valley_view_all_Page );  
 
 /// COSTUME ROUTES ///
 
