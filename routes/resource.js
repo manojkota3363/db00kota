@@ -36,7 +36,7 @@ router.post('/valley', valley_controller.valley_create_post);
 
 // DELETE request to delete Costume.
 
-router.delete('/fan/:id', valley_controllers.valley_delete);
+router.delete('/valley/:id', valley_controllers.valley_delete);
 
  
 
