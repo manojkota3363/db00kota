@@ -6,3 +6,21 @@ body {
 a {
   color: #00B7FF;
 }
+.valleyAttr { 
+  background-color: aquamarine; 
+  width: 120px; 
+} 
+.landna {
+  width: 200px;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight:normal;
+
+}
+.style{
+  color:greenyellow;
+  background-color: blue;
+  color: blanchedalmond
+}

@@ -34,13 +34,13 @@ router.post('/valley', valley_controller.valley_create_post);
 
  
 
-// DELETE request to delete Costume.
+// DELETE request to delete valley.
 
 router.delete('/valley/:id', valley_controllers.valley_delete);
 
  
 
-// PUT request to update Costume.
+// PUT request to update valley.
 
 router.put('/valley/:id',
 

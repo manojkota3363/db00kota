@@ -1,0 +1,42 @@
+extends layout 
+ 
+block content 
+  h1= title 
+  - let valleyid = toShow._id 
+  - let valley_type = toShow.valley_type 
+  - let valleysize = toShow.size
+  - let valleyage = toShow.age
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{valleyid} 
+  - let actionid = "/resource/valley/" + valleyid 
+  form(id='valleyForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.valleyAttr(for='valley_type') valley type 
+        input#valley_type(type='text', name='valley_type', value= valley_type ) 
+    div.form-group 
+        label.valleyAttr(for='size') valley size 
+        input#size(type='text', name='size', value= valleysize ) 
+    div.form-group 
+        label.valleyAttr(for='age') valley cost 
+        input#cost(type='number', name='age', value= valleycost ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['valleyForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 

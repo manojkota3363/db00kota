@@ -1,20 +1,19 @@
 var express = require("express");
+const valley_controlers=require('../controllers/valley')
 var router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   res.render("valley", { title: "Search Results valley" });
 });
-// for a specific Costume. 
-exports.valley_detail = async function(req, res) { 
-  console.log("detail"  + req.params.id) 
-  try { 
-      result = await valley.findById( req.params.id) 
-      res.send(result) 
-  } catch (error) { 
-      res.status(500) 
-      res.send(`{"error": document for id ${req.params.id} not found`); 
-  } 
-}; 
-
 module.exports = router;
+//GET detail valley page */ 
+router.get('/detail',valley_controlers.valley_view_one_Page);
+/* GET create valley page */ 
+router.get('/create', valley_controlers.valley_create_Page); 
+module.exports = router;
+/* GET create update page */ 
+router.get('/update', valley_controlers.valley_update_Page); 
+/* GET create valley page */ 
+router.get('/delete', valley_controlers.valley_delete_Page); 
+ 
