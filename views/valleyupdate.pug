@@ -2,14 +2,10 @@ extends layout
  
 block content 
   h1= title 
-
-  if (toShow == null) 
-    h2 No instance to delete 
-  else 
-  - let valleyid = toShow._id 
-  - let valley_type = toShow.valley_type 
-  - let valleysize = toShow.size
-  - let valleyage = toShow.age
+     - let valleyid = toShow._id 
+     - let valley_type = toShow.valley_type 
+     - let valleysize = toShow.size
+     - let valleycost = toShow.cost
    
   div.row(class='mb-2') 
     div.mr-1 ID is 

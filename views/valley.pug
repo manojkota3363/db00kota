@@ -1,21 +1,31 @@
 extends layout
 
 block content
+  - let create = `dispatch(\"/valley/create\")`
+  button.btn(class="btn-primary m1-1", onclick=create) Create
   h1= title
-  - const tree = ['valley_type','size','age']
-  - let results;
-  - let items=results;
-  script.
-    function buy(x){
-      alert('Purchased Item: ' + x)
-   } 
-   function dispatch(path){ 
-      window.location.href=path 
-    }
-    
-  div(class='container-fluid')
-    div(class='row m-1')
-      each results, index in tree
-        - let destination = `dispatch(\"/valley/update?id=${results._id}\")` 
-        div(class='col-sm-2' onclick='buy('+index+')') #{results}
-        button( class="btn btn-primary ml-1", onclick= destination) Update 
+  p Welcome to the valley pug
+  div(class="container-fluid")
+        div(class="row")
+            - let valley = results
+  div(class="container-fluid") 
+    div(class="row") 
+      each item in valley 
+        - let destination = `dispatch(\"/valley/update?id=${item._id}\")`
+        - let detail=`dispatch(\"/valley/detail/?id=${item._id}\")`
+        - let del=`dispatch(\"/valley/delete/?id=${item._id}\")`
+        div(class="row-sm-2", class="m-1") Item #{item.valley_type}(#{item.size}) is #{item.cost}
+            button.btn( class="btn-primary ml-1", onclick= destination) Update  
+            button.btn( class="btn-dark ml-2", onclick=detail ) Get Detail
+            button.btn( class="btn-warning ml-2", onclick=del ) Delete
+
+        script.                
+            function buy(itemNo)
+            {
+                  alert(`you purchased Item ${itemNo+1}`)
+            }
+        script. 
+             function dispatch(path)
+            { 
+                 window.location.href=path 
+            }

@@ -3,23 +3,21 @@ extends layout
 block content 
   h1= title 
   if (toShow == null) 
-    h2 No instance to delete 
-  else 
- 
+     h2 No instance to delete 
   - let valleyid = toShow._id 
   - let valley_type = toShow.valley_type 
   - let valleysize = toShow.size 
-  - let valleyage = toShow.age
+  - let valleycost = toShow.cost
   div 
     div.row 
       div(class='valleyAttr mr-3') valley ID is: 
-      divdiv(class='landna style') #{valleyid} 
+      div(class='landna style') #{valleyid} 
     div.row 
       div(class='valleyAttr mr-3') valley Type is: 
-      divdiv(class='landna style') #{valley_type} 
+      div(class='landna style') #{valley_type} 
     div.row 
       div(class='valleyAttr mr-3') valley Size is: 
-      divdiv(class='landna style') #{valleysize} 
+      div(class='landna style') #{valleysize} 
     div.row 
       div(class='valleyAttr mr-3') valley age is: 
-      divdiv(class='landna style') #{valleyage} 
+      div(class='landna style') #{valleycost} 
